@@ -2,6 +2,7 @@ import Banner from "./componentes/Banner/index";
 import Form from "./componentes/Form";
 import { useState } from "react";
 import Time from "./componentes/Time";
+import Footer from "./componentes/Footer";
 
 function App() {
 
@@ -53,6 +54,7 @@ function App() {
     <div className="App">
       <Banner />
       <Form
+        times={times.map(time => time.nome)}
         aoColaboradorCadastrado={(colaborador) =>
           aoNovoColaboradorAdicionado(colaborador)
         }
@@ -61,7 +63,10 @@ function App() {
       {times.map(time => <Time key={time.nome} 
         nome={time.nome} 
         colorPrimaria={time.corPrimaria} 
-        colorSecundaria={time.corSecundaria}/>)}
+        colorSecundaria={time.corSecundaria}
+        colaboradores={colaboradores.filter(colaborador => colaborador.time === time.nome)}
+        />)}
+      <Footer/>
     </div>
   );
 }

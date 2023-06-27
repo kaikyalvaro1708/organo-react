@@ -8,8 +8,9 @@ function ListaSuspensa(props) {
       <select
         onChange={(evento) => props.aoAlterado(evento.target.value)}
         required={props.obrigatorio}
-        value={props.value}
+        value={props.valor}
       >
+      <option value=""></option>
         {/* Para cada item retorna uma opção */}
         {props.itens.map((item, index) => {
           return <option key={index}>{item}</option>;

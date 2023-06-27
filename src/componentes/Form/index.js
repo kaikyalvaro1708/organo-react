@@ -5,15 +5,6 @@ import Botao from "../Botao";
 import { useState } from "react";
 
 const Form = (props) => {
-  const times = [
-    "Programação",
-    "Front-End",
-    "Data Science",
-    "Devops",
-    "UX e Design",
-    "Mobile",
-    "Inovação e Gestão",
-  ];
 
   const [nome, setNome] = useState("");
   const [cargo, setCargo] = useState("");
@@ -28,6 +19,11 @@ const Form = (props) => {
       imagem,
       time,
     });
+    // limpar o formulário
+    setNome('');
+    setCargo('');
+    setImagem('');
+    setImagem('');
   };
 
   return (
@@ -57,7 +53,7 @@ const Form = (props) => {
         <ListaSuspensa
           obrigatorio={true}
           label="Time"
-          itens={times}
+          itens={props.times}
           valor={time}
           aoAlterado={(valor) => setTime(valor)}
         />
